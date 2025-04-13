@@ -1,0 +1,13 @@
+backend/
+│
+├── package.json
+├── server.js
+├── config/
+│   └── db.config.js
+├── models/
+│   ├── student.model.js
+│   └── attendance.model.js
+├── routes/
+│   └── attendance.routes.js
+└── controllers/
+    └── attendance.controller.js
