@@ -5,6 +5,7 @@ const path = require('path');
 const fs = require('fs');
 const app = express();
 const apiRoutes = require('./routes/api');
+require('dotenv').config();
 
 // Middleware
 app.use(cors());
@@ -114,6 +115,7 @@ async function checkAndInitializeSessions() {
 
 // Start server
 connectDB().then(() => {
+  mongoose.connect(process.env.MONGO_URI);
   const PORT = process.env.PORT || 3000;
   app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 });
