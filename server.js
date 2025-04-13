@@ -15,7 +15,11 @@ app.use('/api', apiRoutes);
 // MongoDB Connection
 const connectDB = async () => {
   try {
-    await mongoose.connect('mongodb://localhost:27017/attendance', {});
+    await mongoose.connect(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
+    
     console.log('MongoDB connected successfully');
     
     // Check if we need to initialize session data
